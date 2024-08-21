@@ -24,13 +24,27 @@ public class AuthController {
     public String register(Model model){
         RegisterDto user = new RegisterDto();
         model.addAttribute("user", user); 
-    } return "register";
+    return "register";
+      } 
 
     @GetMapping("/restaurant")
     public String restaurant(){
-    }return "restaurant";
+    return "restaurant";
+    }
 
+    @GetMapping("/login")
+    public String login(){
+      return "login";
+    }
 
-
+   @PostMapping("/register/save")
+    public String registerUser(@Valid @ModelAttribute RegisterDto userMapping) {
+        System.out.println("Ok");
+        if(!userMapping.getPassword().equals(userMapping.getPasswordConfirm())){
+            return "redirect:/register?error";
+        }
+        userService.saveUser(userMapping);
+        return "redirect:/login?success=userRegistred";
+    }
 
 }
