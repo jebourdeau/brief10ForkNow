@@ -1,0 +1,27 @@
+attachments_in_comment, 11 [Attachment] Attachment, 01 [comment] Comment
+Comment: id, content [TEXT]
+comment_is_for_shop, 11 [comment] Comment, 0N [shop] Shop
+Shop: id, name, creation_date [TIMESTAMP]
+food_in_shop, 0N [shop] Shop, 01 [food] Food
+:
+
+Attachment: id, type [enum(PICTURE, VIDEO, LINK)], url [null]
+post_created_by_user, 0N [user] User, 0N [comment] Comment
+user_in_shop, 0N [user] User, 1N [shop] Shop: join_date [TIMESTAMP], role [enum(OWNER, ADMIN, MODERATOR, CASHIER) null]
+shop_address, 0N [shop] Shop, 11 [address] Address
+Address: id, firstname [null], lastname [null], company_name [null], num [null], type [null], road, city, country
+Food: id, name, creation_date [TIMESTAMP]
+
+post_attachment, 01 [Attachment] Attachment, 11 [post] Post
+User: id, username, display_name, mail, password, creation_date [TIMESTAMP]
+address_book, 11 [user] User, 0N [address] Address
+order_shipping_address, 11 [order] order, 0N [shipping_address] Address
+order_inquery_address, 11 [order] order, 0N [inquery_address] Address
+order_line, 1N [order] Order, 0N [food] Food: unit_price [NUMBER], quantity [NUMBER], total [NUMBER]
+
+Post: id, creation_date [TIMESTAMP], content [TEXT], modification_date [TIMESTAMP null]
+:
+user_order, 11 [user] User, 0N [order] Order
+Order: id, total [NUMBER]
+order_coupon, 0N [order] Order, 0N [coupon] Coupon
+Coupon: id, code, type [enum(PERCENTAGE_DISCOUNT, SUBSTRACTION_DISCOUNT, FREE_SHIPPING)], minimum_order [NUMBER null], maximum_reduced [NUMBER null]
