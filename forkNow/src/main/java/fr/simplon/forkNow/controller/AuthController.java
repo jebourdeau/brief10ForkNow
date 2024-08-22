@@ -35,14 +35,14 @@ public class AuthController {
     if (user.isPresent()) {
       model.addAttribute("currentUser", user.get());
     }
-    return "forknow-index";
+    return "index";
   }
 
   @GetMapping("/register")
   public String register(Model model) {
     RegisterDto user = new RegisterDto();
     model.addAttribute("user", user);
-    return "forknow-register";
+    return "register";
   }
 
   @GetMapping("/restaurant")

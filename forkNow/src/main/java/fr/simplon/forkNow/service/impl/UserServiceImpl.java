@@ -26,7 +26,6 @@ public class UserServiceImpl implements UserService{
         this.passwordEncoder = passwordEncoder; 
     }
 
-
     @Override
     public void saveUser(UserDto user) {
         User userEntity = User.builder()
