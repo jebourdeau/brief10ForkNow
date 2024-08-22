@@ -153,21 +153,29 @@
             text-align: center;
             padding: 20px 0;
         }
+       
+        .form-style{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
     </style>
 </head>
 <body>
     <header>
         <div>
-            <img src="../static/ForkNow_banner.png" class="resized-image">
+            <img th:src="@{/img/ForkNow_banner.png}" src="../static/img/ForkNow_banner.png" class="resized-image">
+            <p th:if="${currentuser}" th:text="|Greeting ${currentuser.username}|"></p>
         </div>
     </header>
     <div>
-    <form th:action="@{/login}" action="/login" method="post" th:object="${user}" class="form-style">
+    <form th:action="@{/login}" action="/login" method="post" class="form-style">
     <label for="username">Username</label>
-    <input type="text" name="username" id="username" placeholder="Username" th:field="*{username}">
+    <input type="text" name="username" id="username" placeholder="Username" >
 
     <label for="password">Password</label>
-    <input type="password" name="password" id="password" placeholder="Password" th:field="*{password}">
+    <input type="password" name="password" id="password" placeholder="Password" >
 
     <input type="submit" value="Login">
     <a th:href="@{/register}" href="/register"> New Customer ? Register here !</a>
@@ -180,15 +188,3 @@
     </footer>
 </body>
 </html>
-<style>
-    .resized-image {
-        width: 400px; 
-        height: auto;
-    }
-     .form-style{
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-}
-</style>

@@ -32,15 +32,19 @@ public class SpringSecurity {
         return http.authorizeHttpRequests((auth) -> {
                     auth
                             .requestMatchers("/").permitAll()
-                            .requestMatchers( "/register/**").anonymous()
-                            // .requestMatchers("/admin").hasRole("ADMIN")
-                            .requestMatchers("/login").permitAll()
+                            .requestMatchers( "/register").permitAll()
+                            .requestMatchers("/forlogin").permitAll()
+                            .requestMatchers("/register/save").permitAll()
+                            .requestMatchers("/restaurant").permitAll()
                             .requestMatchers("/registerRestaurant").permitAll()
-                            .requestMatchers("/css/**", "/favicon.ico").permitAll();
+                            .requestMatchers("/css/**", "/favicon.ico").permitAll()
+                            .requestMatchers("/img/**").permitAll();
                 }).formLogin(login -> login
-                        .defaultSuccessUrl("/restaurant", true)
+                        .loginPage("/login")
+                        .defaultSuccessUrl("/", true)
                         .permitAll())
                 .logout(logout -> logout
+                        .logoutSuccessUrl("/")
                         .permitAll())
                 .build();
     }

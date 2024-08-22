@@ -16,6 +16,8 @@ public class RegisterDto {
     @NotEmpty(message = "Email is empty!!")
     private String email;
     @NotEmpty(message = "Password is empty!!")
+    private String displayName;
+    @NotEmpty(message = "not found")
     private String password;
     @NotEmpty(message = "PasswordConfirm is empty!!")
     private String passwordConfirm;

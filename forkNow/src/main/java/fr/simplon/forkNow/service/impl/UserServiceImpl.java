@@ -31,6 +31,8 @@ public class UserServiceImpl implements UserService{
         User userEntity = User.builder()
             .username(user.getUsername())
             .password(passwordEncoder.encode(user.getPassword()))
+                .email(user.getEmail())
+                .displayName(user.getDisplayName())
             .build();
         userRepository.save(userEntity);
     }
@@ -41,6 +43,8 @@ public class UserServiceImpl implements UserService{
         User userEntity = User.builder()
                 .username(user.getUsername())
                 .password(passwordEncoder.encode(user.getPassword()))
+                .email(user.getEmail())
+                .displayName(user.getDisplayName())
                 .build();
         userRepository.save(userEntity);
     }

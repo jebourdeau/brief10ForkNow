@@ -16,5 +16,9 @@ public class UserDto {
     private String username;
     @NotEmpty(message = "Password not found")
     private String password;
+    @NotEmpty(message = "Email is empty!!")
+    private String email;
+    @NotEmpty(message = "DisplayName is empty!!")
+    private String displayName;
     
 }

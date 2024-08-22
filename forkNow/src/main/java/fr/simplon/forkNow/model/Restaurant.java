@@ -27,4 +27,10 @@ public class Restaurant {
 
     @NonNull
     private String name;
+
+    private String localisation;
+
+    private String specialisation;
+
+    private Integer priceOrder;
 }

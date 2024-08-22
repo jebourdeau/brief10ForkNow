@@ -167,17 +167,17 @@
 </head>
 <body>
       <header>
-        <div>
-            <img th:src="@{static/ForkNow_banner.png}" src="../static/ForkNow_banner.png" class="resized-image">
+          <div>
+            <img th:src="@{/img/ForkNow_banner.png}" src="../static/img/ForkNow_banner.png" class="resized-image">
         </div>
     </header>
-<form th:action="@{/registerRestaurant/save}" action="/registerRestaurant/save" method="post" th:object="${user}" class="form-style">
+<form th:action="@{/registerRestaurant/save}" action="/registerRestaurant/save" method="post" th:object="${restaurant}" class="form-style">
     <label for="name">Name</label>
     <input type="text" name="name" id="name" placeholder="Name" th:field="*{name}">
     
     <label for="localisation">Localisation</label>
     <input type="localisation" name="localisation" id="localisation" placeholder="Localisation" th:field="*{localisation}">
-    <br>
+    
     <label for="specialisation">Specialisation</label>
     <input type="specialisation" name="specialisation" id="specialisation" placeholder="Specialisation" th:field="*{specialisation}">
     

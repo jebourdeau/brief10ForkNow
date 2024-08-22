@@ -162,7 +162,9 @@
                 <div class="logo"></div>
             </a>
             <nav>
-                <a th:href="@{/login}" href="/login">Login/Register</a>
+                <a th:href="@{/login}" href="/login">Login</a>
+                <a th:href="@{/register}" href="/register">Register</a>
+
             </nav>
         </header>
 
@@ -173,7 +175,7 @@
                 <a th:href="@{restaurant}" href="forknow-restaurants-list.html"><button class="cta-button">Order Now</button></a>
             </div>
             <div class="hero-image">
-                <img th:src="@{ForkNow_hero.png}" src="ForkNow_hero.png" alt="Happy delivery person with food">
+                <img th:src="@{/img/ForkNow_banner.png}" src="../static/img/ForkNow_banner.png" alt="Happy delivery person with food">
             </div>
         </section>
     </div>

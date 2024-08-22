@@ -35,29 +35,36 @@ public class AuthController {
     if (user.isPresent()) {
       model.addAttribute("currentUser", user.get());
     }
-    return "index";
+    return "forknow-index";
   }
 
   @GetMapping("/register")
   public String register(Model model) {
     RegisterDto user = new RegisterDto();
     model.addAttribute("user", user);
-    return "register";
+    return "forknow-register";
   }
 
   @GetMapping("/restaurant")
   public String restaurant() {
-    return "restaurant";
+    return "forknow-restaurants-list";
+  }
+
+  @GetMapping("/registerRestaurant")
+  public String registRestaurant(Model model){
+    RegisterRestaurantDto restaurant = new RegisterRestaurantDto();
+    model.addAttribute("restaurant", restaurant);
+    return "forknow-registerRestaurant";
   }
 
   @GetMapping("/login")
   public String login() {
     return "forknow-login";
   }
-
+  
   @PostMapping("/register/save")
   public String registerUser(@Valid @ModelAttribute RegisterDto userMapping) {
-    System.out.println("Ok");
+    System.out.println("ca marche!!!!");
     if (!userMapping.getPassword().equals(userMapping.getPasswordConfirm())) {
       return "redirect:/register?error";
     }
@@ -67,7 +74,7 @@ public class AuthController {
 
   @PostMapping("/registerRestaurant/save")
   public String registerRestaurant(@Valid @ModelAttribute RegisterRestaurantDto restaurantMapping) {
-    System.out.println("ca marche!!!");
+    System.out.println("ca creer!!!");
     restaurantService.saveRestaurant(restaurantMapping);
     return "redirect:/login?success=userRegistred";
   }
