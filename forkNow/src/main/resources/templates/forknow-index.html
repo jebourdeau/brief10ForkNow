@@ -158,22 +158,22 @@
 <body>
     <div class="container">
         <header>
-            <a href="/">
+            <a th:href="@{/}" href="/">
                 <div class="logo"></div>
             </a>
             <nav>
-                <a href="/login">Login/Register</a>
+                <a th:href="@{/login}" href="/login">Login/Register</a>
             </nav>
         </header>
 
-        <section class="hero" id="home">
+        <section class="hero" id="home" th:action="@{/}" action="/" method="post" th:object="${user}">
             <div class="hero-text">
                 <h1>Delicious Food, Delivered to You</h1>
                 <p>Order your favorite meals and have them delivered right to your doorstep with ForkNow.</p>
-                <a href="forknow-restaurants-list.html"><button class="cta-button">Order Now</button></a>
+                <a th:href="@{restaurant}" href="forknow-restaurants-list.html"><button class="cta-button">Order Now</button></a>
             </div>
             <div class="hero-image">
-                <img src="ForkNow_hero.png" alt="Happy delivery person with food">
+                <img th:src="@{ForkNow_hero.png}" src="ForkNow_hero.png" alt="Happy delivery person with food">
             </div>
         </section>
     </div>
@@ -199,6 +199,7 @@
                 </div>
             </div>
         </div>
+         <a th:href="@{/restaurant}" href="/restaurant"> Restaurant</a>
     </section>
 
     <footer>

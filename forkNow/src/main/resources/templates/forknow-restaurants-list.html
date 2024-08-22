@@ -133,6 +133,18 @@
         .order-button:hover {
             background-color: #FF8C00;
         }
+          .crea-button{
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #FD9B3A;
+            color: #FFF;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 100;
+            transition: background-color 0.3s;
+    }
     </style>
 </head>
 <body>
@@ -140,7 +152,7 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">ForkNow</div>
-                <a href="forknow-index.html" class="back-button">Back to Home</a>
+                <a th:href="@{/forknow-index}" href="forknow-index.html" class="back-button">Back to Home</a>
             </div>
         </div>
     </header>
@@ -187,8 +199,10 @@
                     <a href="#" class="order-button">Order Now</a>
                 </div>
             </div>
-
             <!-- Add more restaurant cards as needed -->
+            <div>
+                <a class="crea-button" th:href="@{/forknow-registerRestaurant}" href="./forknow-registerRestaurant.html">Enter a New Restaurant</a>
+            </div>
         </div>
     </div>
 </body>

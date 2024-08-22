@@ -1,4 +1,4 @@
-package fr.simplon.forkNow;
+package fr.simplon.forknow;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

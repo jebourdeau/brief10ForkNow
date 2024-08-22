@@ -1,3 +1,4 @@
+package fr.simplon.forknow.config;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -11,7 +12,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
-@EnabledWebSecurity
+@EnableWebSecurity
 public class SpringSecurity {
 
         private final UserDetailsService userDetailsService;
@@ -32,11 +33,12 @@ public class SpringSecurity {
                     auth
                             .requestMatchers("/").permitAll()
                             .requestMatchers( "/register/**").anonymous()
-                            .requestMatchers("/admin").hasRole("ADMIN")
+                            // .requestMatchers("/admin").hasRole("ADMIN")
                             .requestMatchers("/login").permitAll()
                             .requestMatchers("/registerRestaurant").permitAll()
                             .requestMatchers("/css/**", "/favicon.ico").permitAll();
                 }).formLogin(login -> login
+                        .defaultSuccessUrl("/restaurant", true)
                         .permitAll())
                 .logout(logout -> logout
                         .permitAll())
