@@ -1,5 +1,6 @@
 package fr.simplon.forknow.controller;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,6 +13,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import fr.simplon.forknow.dto.RegisterDto;
 import fr.simplon.forknow.dto.RegisterRestaurantDto;
+import fr.simplon.forknow.model.Restaurant;
 import fr.simplon.forknow.model.User;
 import fr.simplon.forknow.service.RestaurantService;
 import fr.simplon.forknow.service.UserService;
@@ -44,7 +46,11 @@ public class AuthController {
   }
 
   @GetMapping("/profil")
-  public String profil() {
+  public String profil(Model model, Authentication authentication) {
+    Optional<User> user = userService.from(authentication);
+    if (user.isPresent()) {
+      model.addAttribute("user", user.get());
+    }
     return "forknow-profil";
   }
 
@@ -56,7 +62,9 @@ public class AuthController {
   }
 
   @GetMapping("/restaurant")
-  public String restaurant() {
+  public String restaurant(Model model){
+    List<Restaurant> restaurant = restaurantService.findAll();
+    model.addAttribute("restaurants", restaurant);
     return "forknow-restaurants-list";
   }
 

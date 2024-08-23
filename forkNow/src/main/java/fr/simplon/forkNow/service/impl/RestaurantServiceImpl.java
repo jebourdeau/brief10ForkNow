@@ -1,5 +1,6 @@
 package fr.simplon.forknow.service.impl;
 
+import java.util.List;
 import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,6 +41,10 @@ public class RestaurantServiceImpl implements RestaurantService {
     @Override
     public Optional<Restaurant> findByName(String name) {
         return  restaurantRepository.findByName(name);
+    }
+    @Override
+    public List<Restaurant>findAll(){
+        return restaurantRepository.findAll();
     }
     
 }

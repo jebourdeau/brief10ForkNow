@@ -8,14 +8,22 @@ Mes priorités :
 
 - j'ai séparé les pages Login et Register
 
-- pour pouvoir commander, créer un restaurant, il faudra se loguer;
+- creation d'une page profil en haut à droite
 
-- Creation de User dans une base de donnée PSQL, 
+- gestion des sécurités avec Spring Security 
 
-- Creation d'un formulaire de creation de restaurant, il se rajoute en bdd et (en theorie se rajoute sur la page forknow-restaurants-list)
+- pour pouvoir commander, créer un restaurant, voir son profil : il faudra se loguer;
+
+- Creation d'une DATABASE "forkNow" PSQL,
+
+- Creation d'un chemin base de donnée => User,
+
+- Creation d'un chemin base de donnée => Restaurant,
+
+- Creation d'un formulaire de creation de restaurant, il se rajoute en bdd et (en theorie se rajoute sur la page forknow-restaurants-list),
 
 - Redirection sur les liens des restaurants déja existants "tastybites", "sushi haven", et "pizza paradise", vers les différents menus proposer.
 
-- utilisation de Thymeleaf
+- utilisation de Thymeleaf dans presque tous les fichiers HTML
 
-- creation d'une page profil avec Bouton gestion en haut a droite de la page login
+- 

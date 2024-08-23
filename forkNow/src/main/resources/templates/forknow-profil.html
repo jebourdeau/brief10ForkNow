@@ -129,6 +129,7 @@
         .edit-button:hover {
             background-color: #FF8C00;
         }
+        
     </style>
 </head>
 <body>
@@ -148,9 +149,8 @@
             <form th:action="@{/profil}" action="/profil" method="post" class="form-style">
             <img th:src="@{/img/profile.jpg}" src="../static/img/profile.jpg" alt="Profile Image" class="profile-image">
             <div class="profile-info">
-                <h2 class="profile-name" >Marcel Patoulachi</h2>
-                <p class="profile-email" >marcel.patoulachi@gardiendelapaix</p>
-                <a href="./edit-profile.html" class="edit-button">Edit Profile</a>
+                <h2 class="profile-name" th:text="${user.username}">Marcel Patoulachi</h2>
+                <p class="profile-email" th:text="${user.email}" >marcel.patoulachi@gardiendelapaix</p>
                 <a th:href="@{/restaurant}" href="./forknow-restaurants-list.html" class="back-button"> Restaurants !!!</a>
 
             </div>

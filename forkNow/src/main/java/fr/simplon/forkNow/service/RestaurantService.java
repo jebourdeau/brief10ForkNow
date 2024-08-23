@@ -1,6 +1,7 @@
 package fr.simplon.forknow.service;
 
 import java.util.Optional;
+import java.util.List;
 
 import fr.simplon.forknow.dto.RegisterRestaurantDto;
 import fr.simplon.forknow.dto.RestaurantDto;
@@ -11,4 +12,7 @@ public interface  RestaurantService {
     void saveRestaurant(RegisterRestaurantDto restaurantMapping);
 
     Optional<Restaurant>findByName(String name);
+    
+    List<Restaurant>findAll();
 }
+
