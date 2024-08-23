@@ -38,6 +38,16 @@ public class AuthController {
     return "forknow-index";
   }
 
+  @GetMapping("/login")
+  public String login() {
+    return "forknow-login";
+  }
+
+  @GetMapping("/profil")
+  public String profil() {
+    return "forknow-profil";
+  }
+
   @GetMapping("/register")
   public String register(Model model) {
     RegisterDto user = new RegisterDto();
@@ -45,9 +55,14 @@ public class AuthController {
     return "forknow-register";
   }
 
+  @GetMapping("/restaurant")
+  public String restaurant() {
+    return "forknow-restaurants-list";
+  }
+
   @GetMapping("/tasty")
-    public String tasty(){
-      return "forknow-tastybyte";
+  public String tasty() {
+    return "forknow-tastybyte";
   }
 
   @GetMapping("/sushi-haven")
@@ -60,38 +75,28 @@ public class AuthController {
     return "forknow-pizza";
   }
 
-  @GetMapping("/restaurant")
-  public String restaurant() {
-    return "forknow-restaurants-list";
-  }
-
   @GetMapping("/registerRestaurant")
   public String registRestaurant(Model model){
     RegisterRestaurantDto restaurant = new RegisterRestaurantDto();
     model.addAttribute("restaurant", restaurant);
     return "forknow-registerRestaurant";
   }
-
-  @GetMapping("/login")
-  public String login() {
-    return "forknow-login";
-  }
   
   @PostMapping("/register/save")
   public String registerUser(@Valid @ModelAttribute RegisterDto userMapping) {
-    System.out.println("ca marche!!!!");
+    System.out.println("user creer en bdd!!!!");
     if (!userMapping.getPassword().equals(userMapping.getPasswordConfirm())) {
       return "redirect:/register?error";
     }
     userService.saveUser(userMapping);
-    return "redirect:/login?success=userRegistred";
+    return "redirect:/profil?success=userRegistred";
   }
 
   @PostMapping("/registerRestaurant/save")
   public String registerRestaurant(@Valid @ModelAttribute RegisterRestaurantDto restaurantMapping) {
-    System.out.println("ca creer!!!");
+    System.out.println("restaurant creer en bdd!!!");
     restaurantService.saveRestaurant(restaurantMapping);
-    return "redirect:/restaurant?success=userRegistred";
+    return "redirect:/restaurant?success=restaurantRegistred";
   }
 
 }

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ForkNow - Meal Plans</title>
+    <title>ForkNow - Profile</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
 
@@ -53,6 +53,9 @@
             transition: background-color 0.3s, transform 0.3s;
             font-weight: 600;
             text-decoration: none;
+        
+
+
         }
 
         .back-button:hover {
@@ -66,57 +69,54 @@
             color: #333;
         }
 
-        .meal-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 30px;
-            padding: 20px 0;
-        }
-
-        .meal-card {
+        .profile-card {
             background-color: #FFF;
             border-radius: 10px;
             overflow: hidden;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
             transition: transform 0.3s;
-        }
-
-        .meal-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .meal-image {
-            width: 100%;
-            height: 200px;
-            object-fit: cover;
-        }
-
-        .meal-info {
+            max-width: 600px;
+            margin: 0 auto;
+            text-align: center;
             padding: 20px;
         }
 
-        .meal-name {
-            font-size: 1.2rem;
+        .profile-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            object-fit: cover;
+            margin-bottom: 20px;
+        }
+
+        .profile-info {
+            padding: 20px;
+        }
+
+        .profile-name {
+            font-size: 1.5rem;
             font-weight: 600;
             margin-bottom: 10px;
         }
 
-        .meal-description {
+        .profile-email {
             color: #666;
             margin-bottom: 10px;
         }
 
-        .meal-price {
-            font-size: 1.2rem;
-            font-weight: 600;
-            color: #FD9B3A;
-            margin-bottom: 10px;
+        .profile-bio {
+            font-size: 1rem;
+            color: #333;
+            margin-bottom: 20px;
         }
 
-        .order-button {
-            display: block;
-            width: 100%;
-            padding: 10px;
+        .edit-button {
+            display: inline-block;
+            padding: 10px 20px;
             background-color: #FD9B3A;
             color: #FFF;
             text-align: center;
@@ -126,14 +126,8 @@
             transition: background-color 0.3s;
         }
 
-        .order-button:hover {
+        .edit-button:hover {
             background-color: #FF8C00;
-        }
-        .restaurant-image{
-            display: flex;
-            margin-left: auto;
-            margin-right: auto;
-            margin-top: 10px;
         }
     </style>
 </head>
@@ -142,39 +136,26 @@
         <div class="container">
             <div class="header-content">
                 <div class="logo">ForkNow</div>
-                <a th:href="@{/restaurant}" href="./forknow-restaurants-list.html" class="back-button">Back to Restaurant</a>
                 <a th:href="@{/}" href="./forknow-index.html" class="back-button">Back to Home</a>
             </div>
         </div>
     </header>
 
     <div class="container">
-        <div>
-                <img th:src="@{/img/burgerTasti.jpg}" src="../static/img/burgerTasti.jpg" alt="Restaurant 2" class="restaurant-image">
+        <h1>Profile</h1>
 
-        </div>
-        <h1>Meal Plans</h1>
+        <div class="profile-card">
+            <form th:action="@{/profil}" action="/profil" method="post" class="form-style">
+            <img th:src="@{/img/profile.jpg}" src="../static/img/profile.jpg" alt="Profile Image" class="profile-image">
+            <div class="profile-info">
+                <h2 class="profile-name" >Marcel Patoulachi</h2>
+                <p class="profile-email" >marcel.patoulachi@gardiendelapaix</p>
+                <a href="./edit-profile.html" class="edit-button">Edit Profile</a>
+                <a th:href="@{/restaurant}" href="./forknow-restaurants-list.html" class="back-button"> Restaurants !!!</a>
 
-        <div class="meal-grid">
-            <div class="meal-card">
-                <img th:src="@{/img/burgerMenu.jpg}" src="../static/img/burgerMenu.jpg" alt="Meal Plan 1" class="meal-image">
-                <div class="meal-info">
-                    <h2 class="meal-name">Healthy Delight</h2>
-                    <p class="meal-description">A balanced meal with grilled chicken, quinoa, and mixed vegetables.</p>
-                    <p class="meal-price">$12.99</p>
-                    <a th:href="@{/order/healthy-delight}" href="./order-healthy-delight.html" class="order-button">Order Now</a>
-                </div>
             </div>
-
-            <div class="meal-card">
-                <img th:src="@{/img/veganburger.jpg}" src="../static/img/veganburger.jpg" alt="Meal Plan 2" class="meal-image">
-                <div class="meal-info">
-                    <h2 class="meal-name">Vegan Feast</h2>
-                    <p class="meal-description">A delicious vegan meal with tofu, brown rice, and steamed broccoli.</p>
-                    <p class="meal-price">$10.99</p>
-                    <a th:href="@{/order/vegan-feast}" href="./order-vegan-feast.html" class="order-button">Order Now</a>
-                </div>
-            </div>
+            <!-- <a th:href="@{/login}" href="/login" class="back-button">Already have an account? Login here !</a> -->
+            </form>
         </div>
     </div>
 </body>

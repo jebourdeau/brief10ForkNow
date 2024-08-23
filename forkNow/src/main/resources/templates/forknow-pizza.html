@@ -1,144 +1,178 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Pizza Paradise</title>
+    <title>Pizza Paradise - Menus</title>
     <style>
-        body {
-            font-family: Arial, sans-serif;
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap');
+
+        * {
             margin: 0;
             padding: 0;
-            background-color: #f8f8f8;
+            box-sizing: border-box;
         }
-        header {
-            background-color: #ff6600;
-            color: #fff;
-            padding: 20px 0;
-            text-align: center;
-        }
-        header h1 {
-            margin: 0;
-            font-size: 36px;
-        }
-        nav {
-            background-color: #333;
-            color: #fff;
-            padding: 10px 0;
-            text-align: center;
-        }
-        nav a {
-            color: #fff;
-            margin: 0 15px;
-            text-decoration: none;
-            font-size: 18px;
-        }
-        .hero {
-            background-image: url('../static/img/pizza.jpg');
-            background-size: cover;
-            background-position: center;
-            height: 400px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            color: #fff;
-            text-align: center;
-        }
-        .hero h2 {
-            font-size: 48px;
-            margin: 0;
-        }
-        .content {
-            padding: 20px;
-            text-align: center;
-        }
-        .restaurant-info {
-            background-color: #fff;
-            border-radius: 8px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            overflow: hidden;
-            width: 300px;
-            margin: 0 auto;
-            text-align: center;
-        }
-        .restaurant-image {
-            width: 100%;
-            height: auto;
-        }
-        .restaurant-details {
-            padding: 16px;
-        }
-        .restaurant-name {
-            margin: 0;
-            font-size: 24px;
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f5f5;
             color: #333;
         }
-        .restaurant-cuisine {
-            color: #777;
-            margin: 8px 0;
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        .restaurant-rating {
+
+        header {
+            background-color: #FD9B3A;
+            padding: 20px 0;
+        }
+
+        .header-content {
             display: flex;
-            justify-content: center;
+            justify-content: space-between;
             align-items: center;
-            margin: 8px 0;
         }
-        .star {
-            color: #ffcc00;
-            margin-right: 8px;
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFF;
         }
-        .order-button {
-            display: inline-block;
-            padding: 10px 20px;
-            margin-top: 16px;
-            background-color: #ff6600;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 4px;
-        }
-        .order-button:hover {
-            background-color: #e65c00;
-        }
-        footer {
+
+        .back-button {
             background-color: #333;
-            color: #fff;
+            color: #FFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
+        .back-button:hover {
+            background-color: #555;
+            transform: scale(1.05);
+        }
+
+        h1 {
             text-align: center;
-            padding: 10px 0;
-            position: fixed;
+            margin: 40px 0;
+            color: #333;
+        }
+
+        .meal-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 30px;
+            padding: 20px 0;
+        }
+
+        .meal-card {
+            background-color: #FFF;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .meal-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .meal-image {
             width: 100%;
-            bottom: 0;
+            height: 200px;
+            object-fit: cover;
+        }
+
+        .meal-info {
+            padding: 20px;
+        }
+
+        .meal-name {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+        }
+
+        .meal-description {
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .meal-price {
+            font-size: 1.2rem;
+            font-weight: 600;
+            color: #FD9B3A;
+            margin-bottom: 10px;
+        }
+
+        .order-button {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #FD9B3A;
+            color: #FFF;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s;
+        }
+
+        .order-button:hover {
+            background-color: #FF8C00;
+        }
+        .restaurant-image{
+            display: flex;
+            margin-left: auto;
+            margin-right: auto;
+            margin-top: 10px;
         }
     </style>
 </head>
 <body>
     <header>
-        <h1>Pizza Paradise</h1>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">Pizza Paradise</div>
+                <a th:href="@{/restaurant}" href="./forknow-restaurants-list.html" class="back-button">Back to Restaurant</a>
+                <a th:href="@{/}" href="./forknow-index.html" class="back-button">Back to Home</a>
+            </div>
+        </div>
     </header>
-    <nav>
-        <a href="#">Accueil</a>
-        <a href="#">Menu</a>
-        <a href="#">À propos</a>
-        <a href="#">Contact</a>
-    </nav>
-    <div class="hero">
-        <h2>Les Meilleures Pizzas en Ville</h2>
-    </div>
-    <div class="content">
-        <div class="restaurant-info">
-            <img th:src="@{/img/pizza.jpg}" src="../static/img/pizza.jpg" alt="Restaurant Pizza Paradise" class="restaurant-image">
-            <div class="restaurant-details">
-                <h3 class="restaurant-name">Pizza Paradise</h3>
-                <p class="restaurant-cuisine">Italian, Pizza</p>
-                <div class="restaurant-rating">
-                    <span class="star">★★★★☆</span>
-                    <span>4.2 (180+ reviews)</span>
+    <div class="container">
+        <div>
+                <img th:src="@{/img/pizza.jpg}" src="../static/img/pizza.jpg" alt="Restaurant 3" class="restaurant-image">
+        </div>
+        <h1>Our Menus</h1>
+
+        <div class="meal-grid">
+            <div class="meal-card">
+                <img th:src="@{/img/margarita.jpg}" src="../static/img/margarita.jpg" alt="Menu 1" class="meal-image">
+                <div class="meal-info">
+                    <h2 class="meal-name">Margherita Pizza</h2>
+                    <p class="meal-description">Classic Margherita pizza with fresh tomatoes, mozzarella cheese, and basil.</p>
+                    <p class="meal-price">$14.99</p>
+                    <a th:href="@{/order/margherita-pizza}" href="./order-margherita-pizza.html" class="order-button">Order Now</a>
                 </div>
-                <a href="#" class="order-button">Commander Maintenant</a>
+            </div>
+            <div class="meal-card">
+                <img th:src="@{/img/pepperoni.jpg}" src="../static/img/peperroni.jpg" alt="Menu 2" class="meal-image">
+                <div class="meal-info">
+                    <h2 class="meal-name">Pepperoni Pizza</h2>
+                    <p class="meal-description">Delicious pepperoni pizza with a generous topping of spicy pepperoni and mozzarella cheese.</p>
+                    <p class="meal-price">$16.99</p>
+                    <a th:href="@{/order/pepperoni-pizza}" href="./order-pepperoni-pizza.html" class="order-button">Order Now</a>
+                </div>
             </div>
         </div>
     </div>
-    <footer>
-        <p>© 2024 Pizza Paradise. Tous droits réservés.</p>
-    </footer>
 </body>
 </html>

@@ -181,6 +181,9 @@
             transition: background-color 0.3s, transform 0.3s;
             font-weight: 600;
             text-decoration: none;
+            margin-top: 20px; 
+            margin-bottom: 20px;
+
         }
     </style>
 </head>
@@ -211,8 +214,8 @@
     <label for="passwordConfirm">Confirmation</label>
     <input type="password" name="passwordConfirm" id="passwordConfirm" placeholder="Password confirmation" th:field="*{passwordConfirm}">
 
-    <input type="submit" value="Register">
-    <a th:href="@{/login}" href="/login">Already have an account? Login here !</a>
+    <input type="submit" class="back-button" value="Register">
+    <a th:href="@{/login}" href="/login" class="back-button">Already have an account? Login here !</a>
 </form>
 
     <footer>

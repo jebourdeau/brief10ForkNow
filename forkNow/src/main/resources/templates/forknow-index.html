@@ -153,6 +153,26 @@
             text-align: center;
             padding: 20px 0;
         }
+        .back-button {
+            background-color: #333;
+            color: #FFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 20px; 
+            margin-bottom: 20px; 
+        }
+        .profils{
+            border-radius: 50%;
+            width: 20px;
+            justify-content: center;
+            margin-right: 10px; 
+        }
     </style>
 </head>
 <body>
@@ -162,9 +182,11 @@
                 <div class="logo"></div>
             </a>
             <nav>
-                <a th:href="@{/login}" href="/login">Login</a>
-                <a th:href="@{/register}" href="/register">Register</a>
-
+                <a th:href="@{/login}" href="./forknow-login.html">Login</a>
+                <a th:href="@{/register}" href="./forknow-register.html">Register</a>
+                <a th:href="@{/profil}" href="./forknow-profil.html" class="back-button"><img th:src="@{/img/profile.jpg}" src="../static/img/profile.jpg" class ="profils">Profils</a>
+                <p th:if="${currentuser}" th:text="|Greeting ${currentuser.username}|">Welcome back </p>
+                
             </nav>
         </header>
 

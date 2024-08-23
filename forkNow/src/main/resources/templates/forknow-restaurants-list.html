@@ -145,6 +145,12 @@
             font-weight: 100;
             transition: background-color 0.3s;
     }
+     .profils{
+            border-radius: 50%;
+            width: 20px;
+            justify-content: center;
+            margin-right: 10px; 
+        }
     </style>
 </head>
 <body>
@@ -153,6 +159,8 @@
             <div class="header-content">
                 <div class="logo">ForkNow</div>
                 <a th:href="@{/}" href="/" class="back-button">Back to Home</a>
+                <a th:href="@{/profil}" href="./forknow-profil.html" class="back-button"><img th:src="@{/img/profile.jpg}" src="../static/img/profile.jpg" class ="profils">Profils</a>
+                
             </div>
         </div>
           <img th:src="@{/img/ForkNow_logo.png}" src="../static/img/ForkNow_logo.png" class="resized-image">
@@ -172,7 +180,7 @@
                         <span class="star">★★★★☆</span>
                         <span>4.5 (200+ reviews)</span>
                     </div>
-                    <a th:href="@{/tasty}" href="./tasty.html" class="order-button">Order Now</a>
+                    <a th:href="@{/tasty}" href="./forknow-tastyByte.html" class="order-button">Order Now</a>
                 </div>
             </div>
 
@@ -185,12 +193,12 @@
                         <span class="star">★★★★★</span>
                         <span>4.8 (150+ reviews)</span>
                     </div>
-                    <a th:href="@{/sushi-haven}" href="./sushi-haven.html" class="order-button">Order Now</a>
+                    <a th:href="@{/sushi-haven}" href="./forknow-sushi.html" class="order-button">Order Now</a>
                 </div>
             </div>
 
             <div class="restaurant-card">
-                <img th:src="@{/img/pizza.jpg}" alt="Restaurant 3" class="restaurant-image">
+                <img th:src="@{/img/pizza.jpg}" src="../static/img/pizza.jpg" alt="Restaurant 3" class="restaurant-image">
                 <div class="restaurant-info">
                     <h2 class="restaurant-name">Pizza Paradise</h2>
                     <p class="restaurant-cuisine">Italian, Pizza</p>
@@ -201,7 +209,19 @@
                     <a th:href="@{/pizza-paradise}" href="./forknow-pizza.html" class="order-button">Order Now</a>
                 </div>
             </div>
-            <!-- Add more restaurant cards as needed -->
+            <!-- ajout de restaurant avec boucle foreach-->
+             <div th:each="restaurant : ${restaurants}" class="restaurant-card">
+                <img th:src="@{/img/restaurant.jpg}" src="../static/img/restaurant.jpg" alt="Restaurant Image" class="restaurant-image">
+                <div class="restaurant-info">
+                    <h2 class="restaurant-name" th:text="${restaurant.name}">Restaurant Name</h2>
+                    <p class="restaurant-cuisine" th:text="${restaurant.specialisation}">Cuisine Type</p>
+                    <div class="restaurant-rating">
+                        <span class="star">★★★★☆</span>
+                        <span>4.5 (200+ reviews)</span>
+                    </div>
+                    <a th:href="@{/restaurant/{id}(id=${restaurant.id})}" href="#" class="order-button">Order Now</a>
+                </div>
+            </div>
             <div>
                 <a class="crea-button" th:href="@{/registerRestaurant}" href="./registerRestaurant.html">Enter a New Restaurant</a>
             </div>

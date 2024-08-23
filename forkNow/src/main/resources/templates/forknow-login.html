@@ -181,6 +181,14 @@
             transition: background-color 0.3s, transform 0.3s;
             font-weight: 600;
             text-decoration: none;
+            margin-top: 20px; 
+            margin-bottom: 20px; 
+        }
+        .profils{
+            border-radius: 50%;
+            width: 20px;
+            justify-content: center;
+            margin-right: 10px; 
         }
     </style>
 </head>
@@ -189,11 +197,11 @@
         <div class="header-content">
                 <div class="logo">ForkNow</div>
                 <a th:href="@{/}" href="/" class="back-button">Back to Home</a>
+                <a th:href="@{/profil}" href="./forknow-profil.html" class="back-button"><img th:src="@{/img/profile.jpg}" src="../static/img/profile.jpg" class ="profils">Profils</a>
             </div>
         </header>
         <div>
             <img th:src="@{/img/ForkNow_banner.png}" src="../static/img/ForkNow_banner.png" class="resized-image">
-            <p th:if="${currentuser}" th:text="|Greeting ${currentuser.username}|">Greeting</p>
         </div>
     <div>
     <form th:action="@{/login}" action="/login" method="post" class="form-style">
@@ -203,8 +211,9 @@
     <label for="password">Password</label>
     <input type="password" name="password" id="password" placeholder="Password" >
 
-    <input type="submit" value="Login">
-    <a th:href="@{/register}" href="/register"> New Customer ? Register here !</a>
+    <input type="submit" class="back-button" value="Login">
+    <br>
+    <a th:href="@{/register}" href="/register" class="back-button"> New Customer ? Register here !</a>
 </form>
     </div>
     <footer>
