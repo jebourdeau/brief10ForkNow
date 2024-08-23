@@ -45,6 +45,21 @@ public class AuthController {
     return "forknow-register";
   }
 
+  @GetMapping("/tasty")
+    public String tasty(){
+      return "forknow-tastybyte";
+  }
+
+  @GetMapping("/sushi-haven")
+  public String sushi() {
+    return "forknow-sushi";
+  }
+
+  @GetMapping("/pizza-paradise")
+  public String pizza() {
+    return "forknow-pizza";
+  }
+
   @GetMapping("/restaurant")
   public String restaurant() {
     return "forknow-restaurants-list";
@@ -76,7 +91,7 @@ public class AuthController {
   public String registerRestaurant(@Valid @ModelAttribute RegisterRestaurantDto restaurantMapping) {
     System.out.println("ca creer!!!");
     restaurantService.saveRestaurant(restaurantMapping);
-    return "redirect:/login?success=userRegistred";
+    return "redirect:/restaurant?success=userRegistred";
   }
 
 }

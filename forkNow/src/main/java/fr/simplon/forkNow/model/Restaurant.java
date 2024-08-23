@@ -32,5 +32,4 @@ public class Restaurant {
 
     private String specialisation;
 
-    private Integer priceOrder;
 }

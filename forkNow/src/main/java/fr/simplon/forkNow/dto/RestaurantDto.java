@@ -17,6 +17,5 @@ public class RestaurantDto {
     private String localisation;
     @NotEmpty(message = "spécialisation not found")
     private String specialisation;
-    @NotEmpty(message = "price not found")
-    private Integer priceOrder;
+
 }

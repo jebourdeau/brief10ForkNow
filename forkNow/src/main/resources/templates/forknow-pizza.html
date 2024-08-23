@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza Paradise</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f8f8f8;
+        }
+        header {
+            background-color: #ff6600;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 36px;
+        }
+        nav {
+            background-color: #333;
+            color: #fff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: #fff;
+            margin: 0 15px;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .hero {
+            background-image: url('../static/img/pizza.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 400px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #fff;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 48px;
+            margin: 0;
+        }
+        .content {
+            padding: 20px;
+            text-align: center;
+        }
+        .restaurant-info {
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            width: 300px;
+            margin: 0 auto;
+            text-align: center;
+        }
+        .restaurant-image {
+            width: 100%;
+            height: auto;
+        }
+        .restaurant-details {
+            padding: 16px;
+        }
+        .restaurant-name {
+            margin: 0;
+            font-size: 24px;
+            color: #333;
+        }
+        .restaurant-cuisine {
+            color: #777;
+            margin: 8px 0;
+        }
+        .restaurant-rating {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 8px 0;
+        }
+        .star {
+            color: #ffcc00;
+            margin-right: 8px;
+        }
+        .order-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 16px;
+            background-color: #ff6600;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+        .order-button:hover {
+            background-color: #e65c00;
+        }
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px 0;
+            position: fixed;
+            width: 100%;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Pizza Paradise</h1>
+    </header>
+    <nav>
+        <a href="#">Accueil</a>
+        <a href="#">Menu</a>
+        <a href="#">À propos</a>
+        <a href="#">Contact</a>
+    </nav>
+    <div class="hero">
+        <h2>Les Meilleures Pizzas en Ville</h2>
+    </div>
+    <div class="content">
+        <div class="restaurant-info">
+            <img th:src="@{/img/pizza.jpg}" src="../static/img/pizza.jpg" alt="Restaurant Pizza Paradise" class="restaurant-image">
+            <div class="restaurant-details">
+                <h3 class="restaurant-name">Pizza Paradise</h3>
+                <p class="restaurant-cuisine">Italian, Pizza</p>
+                <div class="restaurant-rating">
+                    <span class="star">★★★★☆</span>
+                    <span>4.2 (180+ reviews)</span>
+                </div>
+                <a href="#" class="order-button">Commander Maintenant</a>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <p>© 2024 Pizza Paradise. Tous droits réservés.</p>
+    </footer>
+</body>
+</html>

@@ -153,22 +153,47 @@
             text-align: center;
             padding: 20px 0;
         }
-        .resized-image {
-            width: 400px; 
-            height: auto;
-        }
+       
         .form-style{
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
         }
+         .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFF;
+        }
+         .back-button {
+            background-color: #333;
+            color: #FFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+        }
+
     </style>
 </head>
 <body>
       <header>
           <div>
+            <div class="header-content">
+                <div class="logo">ForkNow</div>
+                <a th:href="@{/}" href="/" class="back-button">Back to Home</a>
+            </div>
             <img th:src="@{/img/ForkNow_banner.png}" src="../static/img/ForkNow_banner.png" class="resized-image">
+           
         </div>
     </header>
 <form th:action="@{/registerRestaurant/save}" action="/registerRestaurant/save" method="post" th:object="${restaurant}" class="form-style">
@@ -181,11 +206,11 @@
     <label for="specialisation">Specialisation</label>
     <input type="specialisation" name="specialisation" id="specialisation" placeholder="Specialisation" th:field="*{specialisation}">
     
-    <label for="priceOrder">Price Order</label>
-    <input type="priceOrder" name="priceOrder" id="priceOrder" placeholder="priceOrder" th:field="*{priceOrder}">
-    <br>
-    <input type="submit" value="Register-Restaurant">
-    <br>
+    <!-- <label for="priceOrder">Price Order</label>
+    <input type="priceOrder" name="priceOrder" id="priceOrder" placeholder="priceOrder" th:field="*{priceOrder}"> -->
+   
+    <input type="submit" class="back-button" value="Register-Restaurant">
+   
 </form>
 
     <footer>

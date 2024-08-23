@@ -33,10 +33,14 @@ public class SpringSecurity {
                     auth
                             .requestMatchers("/").permitAll()
                             .requestMatchers( "/register").permitAll()
+                            .requestMatchers("/tasty").permitAll()
+                            .requestMatchers("/sushi-haven").permitAll()
+                            .requestMatchers("/pizza-paradise").permitAll()
                             .requestMatchers("/forlogin").permitAll()
                             .requestMatchers("/register/save").permitAll()
                             .requestMatchers("/restaurant").permitAll()
                             .requestMatchers("/registerRestaurant").permitAll()
+                            .requestMatchers("/registerRestaurant/save").authenticated()
                             .requestMatchers("/css/**", "/favicon.ico").permitAll()
                             .requestMatchers("/img/**").permitAll();
                 }).formLogin(login -> login

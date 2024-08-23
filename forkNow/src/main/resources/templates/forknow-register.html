@@ -160,14 +160,40 @@
             align-items: center;
             justify-content: center;
         }
+         .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #FFF;
+        }
+         .back-button {
+            background-color: #333;
+            color: #FFF;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 50px;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: 600;
+            text-decoration: none;
+        }
     </style>
 </head>
 <body>
       <header>
+        <div class="header-content">
+                <div class="logo">ForkNow</div>
+                <a th:href="@{/}" href="/" class="back-button">Back to Home</a>
+            </div>
+        </header>
         <div>
             <img th:src="@{/img/ForkNow_banner.png}" src="../static/img/ForkNow_banner.png" class="resized-image">
         </div>
-    </header>
 <form th:action="@{/register/save}" action="/register/save" method="post" th:object="${user}" class="form-style">
 
     <label for="username">Username</label>
