@@ -1,0 +1,25 @@
+services: 
+  spring:
+    image: brief10ForkNow/forkNow:1.0.0-beta.1
+    ports:
+      - "8080:8080"
+    networks:
+      - forknow-net
+  postgres:
+    images: postgres:13
+    environment:
+      - POSTGRES_USER=forknow
+      - POSTGRES_DT=forknow
+      - POSTGRES_PASSWORD=forknow
+    
+    volumes: 
+      - postgres_data/var/lib/postgres/data
+    
+    networks:
+      - forknow-net
+
+volumes:
+  postgres_data:
+
+networks:
+  forknow-net:
